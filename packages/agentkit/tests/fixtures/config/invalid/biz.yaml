@@ -1,0 +1,19 @@
+zone: biz
+
+db:
+  dsn: "postgresql+psycopg://biz_app@127.0.0.1:5432/hoofprints_biz"
+  schema: agentkit
+
+litellm:
+  virtual_keys:
+    biz-a-local:
+      classification: A
+      external_model: "anthropic/claude-sonnet-5"
+
+phoenix:
+  project: biz
+
+effects:
+  file_root: "./var/biz/effects"
+
+allowed_classifications: ["A", "B"]

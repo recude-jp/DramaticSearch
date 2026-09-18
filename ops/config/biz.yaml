@@ -1,0 +1,26 @@
+# BIZゾーン設定。
+# 実運用のdsnにパスワードなどの秘密が必要な場合はSOPS/ageで暗号化すること（平文コミット禁止・R8）。
+# ここではローカルのpeer/trust接続を前提とした値のみを置く。
+zone: biz
+
+db:
+  dsn: "postgresql+psycopg://biz_app@127.0.0.1:5432/hoofprints_biz"
+  migration_dsn: "postgresql+psycopg:///hoofprints_biz"
+  schema: agentkit
+
+litellm:
+  virtual_keys:
+    biz-a-local:
+      classification: A
+      external_model: null
+    biz-b-gated:
+      classification: B
+      external_model: "anthropic/claude-sonnet-5"
+
+phoenix:
+  project: biz
+
+effects:
+  file_root: "./var/biz/effects"
+
+allowed_classifications: ["A", "B"]

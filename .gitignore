@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# uv
+# (uv.lock はコミットする)
+
+# Node / Next.js
+node_modules/
+apps/*/web/.next/
+apps/*/web/out/
+
+# 実行時生成物
+var/
+
+# secrets
+*.env
+.env.*
+!.env.example

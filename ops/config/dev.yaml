@@ -1,0 +1,21 @@
+# DEVゾーン設定。秘密は含まない（dev_appはローカルpeer認証/trust接続のみ）。
+zone: dev
+
+db:
+  dsn: "postgresql+psycopg://dev_app@127.0.0.1:5432/hoofprints_dev"
+  migration_dsn: "postgresql+psycopg:///hoofprints_dev"
+  schema: agentkit
+
+litellm:
+  virtual_keys:
+    dev-external:
+      classification: C
+      external_model: "anthropic/claude-sonnet-5"
+
+phoenix:
+  project: dev
+
+effects:
+  file_root: "./var/dev/effects"
+
+allowed_classifications: ["C"]

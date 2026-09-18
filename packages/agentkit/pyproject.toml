@@ -1,0 +1,30 @@
+[project]
+name = "agentkit"
+version = "0.1.0"
+description = "汎用エージェント基盤（ドメインを知らない）"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.9",
+    "pydantic-settings>=2.6",
+    "pyyaml>=6.0",
+    "sqlalchemy>=2.0",
+    "psycopg[binary]>=3.2",
+    "alembic>=1.14",
+]
+
+[project.optional-dependencies]
+ner = ["ginza", "ja-ginza"]
+local = ["mlx-lm"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agentkit"]
+
+[tool.mypy]
+strict = true
+
+[dependency-groups]
+dev = ["pytest>=8.3", "types-PyYAML>=6.0"]
