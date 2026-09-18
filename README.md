@@ -1,4 +1,4 @@
-# Dramitic Search with recude-agents
+# Dramatic Search with recude-agents
 
 汎用エージェント基盤 **agentkit** と、その上で動く競馬ドラマ生成サービス **hoofprints** を
 1つの uv workspace に収めたモノレポ。
